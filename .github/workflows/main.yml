@@ -45,3 +45,4 @@ jobs:
         uses: 'google-github-actions/get-gke-credentials@v0'
         with:
           cluster_name: 'cluster-3'
+          location: us-east1
