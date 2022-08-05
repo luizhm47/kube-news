@@ -46,3 +46,9 @@ jobs:
         with:
           cluster_name: 'cluster-3'
           location: us-east1
+
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v4.3
+        with:
+          images: machadoluiz/kube-news:${{github.run_number}}
+          manifests: k8s/deployment.yaml
