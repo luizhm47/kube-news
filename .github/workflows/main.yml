@@ -36,11 +36,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       
-      - name: Kubernetes Set Context
-        uses: Azure/k8s-set-context@v3.0
+      - name: Get GKE Credentials
+        uses: google-github-actions/get-gke-credentials@v0.8.0
         with:
-          method: kubeconfig
-          kubeconfig: ${{secrets.K8S_kubeconfig}}
+          cluster_name: cluster-3
+          project_id: aula-358323
       
       - name: Deploy to Kubernetes cluster
         uses: Azure/k8s-deploy@v4.3
