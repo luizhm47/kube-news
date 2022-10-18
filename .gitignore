@@ -104,4 +104,3 @@ node_modules/
 # .tern-port
 
 *.Identifier
-.github/workflows/*
