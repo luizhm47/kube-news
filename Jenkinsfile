@@ -25,6 +25,7 @@ pipeline {
     stage ('Deploy App') {
       steps {
         withKubeConfig ([credentialsId: 'kubeconfig']) {
+          sh 'sed -i "s/{{TAG}}/${env.BUILD_ID}/g" k8s/deployment.yaml'
           sh 'kubectl apply -f k8s/deployment.yaml'
         }
       }
