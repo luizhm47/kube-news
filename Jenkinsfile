@@ -24,7 +24,7 @@ pipeline {
 
     stage ('Deploy App') {
       environment {
-        tag_version = "${env_BUILD_ID}"
+        tag_version = "${env.BUILD_ID}"
       }
 
       steps {
