@@ -21,6 +21,21 @@ pipeline {
         }
       }
     }
+
+    stage ('Deploy App') {
+      steps {
+        withKubeconfig ([credentialsId: 'kubeconfig']) {
+          sh 'kubectl apply -f k8s/deployment.yaml'
+        }
+        script {
+          dockerapp = docker.build("machadoluiz/kube-news:${env.BUILD_ID}", "-f Dockerfile .")
+        }
+      }
+    }
+
+
+
+
   }
 
 }
